@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../context/LanguageContext';
+import profilePhoto from '../assets/WhatsApp Image 2025-07-17 at 1.20.07 PM.jpeg';
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -125,8 +126,8 @@ const Contact: React.FC = () => {
             <div className="relative bg-gray-800 rounded-lg p-4 transform-gpu" style={{transformStyle: 'preserve-3d'}}>
               <div className="bg-[#0d0d0d] rounded-lg p-8 min-h-64 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#ff0000] to-[#ff4444] flex items-center justify-center" style={{backgroundImage: 'url(/profile it.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-                    <span className="text-2xl font-bold text-white">BL</span>
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#ff0000] to-[#ff4444] flex items-center justify-center overflow-hidden">
+                    <img src="/profile it.jpeg" alt="Profile" className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">
                     Bhavyansh Lakhara
