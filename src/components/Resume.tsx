@@ -8,7 +8,6 @@ const Resume: React.FC = () => {
     <section id="resume" className="flex flex-col items-center justify-center min-h-[60vh] bg-[#0d0d0d] py-16">
       <div className="bg-[#181b20] border-2 border-[#ff0000] rounded-xl shadow-lg p-8 max-w-2xl w-full flex flex-col items-center">
         <h2 className="text-4xl font-bold text-[#ff0000] mb-6 text-center">My Resume</h2>
-        <div className="w-24 h-24 mb-4 rounded-full bg-gradient-to-r from-[#ff0000] to-[#ff4444] flex items-center justify-center shadow-lg" style={{backgroundImage: 'url(/profile it.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center'}} />
         <p className="text-gray-300 mb-8 text-center max-w-lg">
           Download my CV to learn more about my experience, education, and skills. For more details, feel free to contact me!
         </p>
