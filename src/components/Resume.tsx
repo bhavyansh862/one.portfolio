@@ -19,7 +19,7 @@ const Resume: React.FC = () => {
           Download CV
         </a>
         <iframe
-          src={pdfUrl}
+          src="https://bhaviiii.netlify.app/resume.pdf"
           title="Resume Preview"
           className="w-full h-96 border-2 border-[#ff0000] rounded-lg mt-4 bg-white"
         />
