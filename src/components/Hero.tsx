@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
+import downloadPng from '../assets/download.png';
+import LanguageToggle from './LanguageToggle';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -86,6 +88,7 @@ const Hero: React.FC = () => {
         background: 'linear-gradient(45deg, #0d0d0d 0%, #0b0303 100%)'
       }}
     >
+      <LanguageToggle />
       {/* Animated Profile Popup */}
       {/* The profile popup feature is disabled, so this block is removed. */}
       {/* Animated Data Flow Background */}
@@ -149,7 +152,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
         <img
-          src="/profile it.jpeg"
+          src={downloadPng}
           alt="Profile"
           className="mx-auto mb-4 w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-[#ff0000] shadow-lg"
           style={{ filter: 'drop-shadow(0 0 10px #ff0000)' }}
