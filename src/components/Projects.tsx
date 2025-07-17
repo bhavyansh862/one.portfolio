@@ -21,7 +21,19 @@ const Projects: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
   const { language } = useLanguage();
 
-  const projects: Project[] = [
+  // Add categories
+  const categories = [
+    'All',
+    'Docker',
+    'AI/ML',
+    'Cloud Computing',
+    'Video Editing',
+    'Jenkins',
+    'Kubernetes',
+  ];
+
+  // Add category property to each project
+  const projects: (Project & { category: string })[] = [
     {
       id: 'project-1',
       title: 'Instagram Post Automation',
@@ -29,7 +41,7 @@ const Projects: React.FC = () => {
       techStack: ['Python', 'Jupyter Notebook', 'Selenium', 'Instagram API'],
       image: 'https://images.pexels.com/photos/248533/pexels-photo-248533.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862/python-projects/blob/5c80ce76535a19fce9432abfbcb3e52c3e9c57f4/insta%20post.ipynb',
-      // demo: '' // Optionally remove or leave blank
+      category: 'AI/ML',
     },
     {
       id: 'project-2',
@@ -38,7 +50,8 @@ const Projects: React.FC = () => {
       techStack: ['React', 'Node.js', 'AWS', 'Kubernetes', 'MongoDB'],
       image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
+      demo: 'https://demo.example.com',
+      category: 'Cloud Computing',
     },
     {
       id: 'project-3',
@@ -47,7 +60,8 @@ const Projects: React.FC = () => {
       techStack: ['Jenkins', 'Docker', 'Kubernetes', 'Terraform', 'Ansible'],
       image: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
+      demo: 'https://demo.example.com',
+      category: 'Jenkins',
     },
     {
       id: 'project-4',
@@ -56,7 +70,8 @@ const Projects: React.FC = () => {
       techStack: ['Python', 'Web3.py', 'React', 'D3.js', 'PostgreSQL'],
       image: 'https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
+      demo: 'https://demo.example.com',
+      category: 'AI/ML',
     },
     {
       id: 'project-5',
@@ -65,7 +80,8 @@ const Projects: React.FC = () => {
       techStack: ['Node.js', 'MQTT', 'InfluxDB', 'Grafana', 'Docker'],
       image: 'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
+      demo: 'https://demo.example.com',
+      category: 'Docker',
     },
     {
       id: 'project-6',
@@ -74,7 +90,8 @@ const Projects: React.FC = () => {
       techStack: ['Python', 'TensorFlow', 'Kubeflow', 'MLflow', 'Apache Airflow'],
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
+      demo: 'https://demo.example.com',
+      category: 'AI/ML',
     },
     {
       id: 'project-7',
@@ -83,7 +100,8 @@ const Projects: React.FC = () => {
       techStack: ['Go', 'gRPC', 'Istio', 'Prometheus', 'Jaeger'],
       image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
+      demo: 'https://demo.example.com',
+      category: 'Cloud Computing',
     },
     {
       id: 'project-8',
@@ -92,7 +110,8 @@ const Projects: React.FC = () => {
       techStack: ['Node.js', 'Socket.io', 'Redis', 'React', 'PostgreSQL'],
       image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
+      demo: 'https://demo.example.com',
+      category: 'Cloud Computing',
     },
     {
       id: 'project-9',
@@ -101,7 +120,8 @@ const Projects: React.FC = () => {
       techStack: ['Nginx', 'Lua', 'Redis', 'Prometheus', 'Docker'],
       image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
+      demo: 'https://demo.example.com',
+      category: 'Docker',
     },
     {
       id: 'project-10',
@@ -110,11 +130,20 @@ const Projects: React.FC = () => {
       techStack: ['Go', 'gRPC', 'etcd', 'Docker', 'Kubernetes'],
       image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
       github: 'https://github.com/bhavyansh862',
-      demo: 'https://demo.example.com'
-    }
+      demo: 'https://demo.example.com',
+      category: 'Kubernetes',
+    },
   ];
 
-  const visibleProjects = showAll ? projects : projects.slice(0, 5);
+  // Add state for selected category
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Filter projects by selected category
+  const filteredProjects = selectedCategory === 'All'
+    ? projects
+    : projects.filter((project) => project.category === selectedCategory);
+
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
   const itemsPerSlide = 3;
   const maxIndex = Math.max(0, Math.ceil(visibleProjects.length / itemsPerSlide) - 1);
 
@@ -281,18 +310,36 @@ const Projects: React.FC = () => {
           </div>
         </div>
         
+        {/* Add filter bar UI above the slider */}
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setSelectedCategory(cat);
+                setShowAll(false);
+                setCurrentIndex(0);
+              }}
+              className={`px-6 py-2 rounded-full font-semibold border-2 transition-colors duration-200 cursor-pointer
+                ${selectedCategory === cat ? 'bg-[#ff0000] text-white border-[#ff0000]' : 'bg-[#181b20] text-[#ff0000] border-[#ff0000] hover:bg-[#ff0000] hover:text-white'}`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+        
         {/* View All Projects Button */}
-        {!showAll && (
-          <div className="text-center mt-16">
+        {!showAll && filteredProjects.length > 3 && (
+          <div className="text-center mt-8">
             <button
               onClick={handleViewAll}
               className="bg-[#0b0303] border-2 border-[#ff0000] text-[#ff0000] px-8 py-4 rounded-lg hover:bg-[#ff0000] hover:text-white transition-all duration-300 cursor-magnetic transform hover:scale-105"
             >
               <span className="text-lg font-semibold">
-                {language === 'en' ? 'View All Projects' : 'Voir Tous les Projets'}
+                {language === 'en' ? 'View More' : 'Voir Plus'}
               </span>
               <div className="mt-1 text-sm opacity-80">
-                {language === 'en' ? `+${projects.length - 5} more projects` : `+${projects.length - 5} projets de plus`}
+                {language === 'en' ? `+${filteredProjects.length - 3} more projects` : `+${filteredProjects.length - 3} projets de plus`}
               </div>
             </button>
           </div>
@@ -304,8 +351,8 @@ const Projects: React.FC = () => {
             <span className="w-2 h-2 bg-[#ff0000] rounded-full animate-pulse" />
             <span className="text-sm">
               {language === 'en' 
-                ? `Showing ${visibleProjects.length} of ${projects.length} projects`
-                : `Affichage de ${visibleProjects.length} sur ${projects.length} projets`
+                ? `Showing ${visibleProjects.length} of ${filteredProjects.length} projects`
+                : `Affichage de ${visibleProjects.length} sur ${filteredProjects.length} projets`
               }
             </span>
           </div>
