@@ -30,6 +30,7 @@ const Projects: React.FC = () => {
     'Video Editing',
     'Jenkins',
     'Kubernetes',
+    'Python', // Added Python as a category
   ];
 
   // Add category property to each project
