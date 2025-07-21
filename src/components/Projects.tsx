@@ -133,6 +133,60 @@ const Projects: React.FC = () => {
       demo: 'https://demo.example.com',
       category: 'Kubernetes',
     },
+    {
+      id: 'project-ml-t1',
+      title: 'ML T1 - Machine Learning Task 1',
+      description: 'A Jupyter Notebook demonstrating foundational machine learning techniques and workflows. Includes data preprocessing, model training, and evaluation.',
+      techStack: ['Python', 'Jupyter Notebook', 'Machine Learning'],
+      image: 'https://raw.githubusercontent.com/jupyter/design/master/logos/rectanglelogo-greytext-orangebody-greymoons.svg', // Replace with a custom image if available
+      github: 'https://github.com/bhavyansh862/python-projects/blob/563c819710d26bd7831561ca4ac0520239600908/ML%20T1.ipynb',
+      category: 'AI/ML',
+    },
+    {
+      id: 'project-search-google',
+      title: 'Search on the google.ipynb',
+      description: 'A Jupyter Notebook that demonstrates how to automate Google searches using Python. Useful for web automation and data collection tasks.',
+      techStack: ['Python', 'Jupyter Notebook', 'Web Automation'],
+      image: 'https://raw.githubusercontent.com/jupyter/design/master/logos/rectanglelogo-greytext-orangebody-greymoons.svg', // Replace with a custom image if available
+      github: 'https://github.com/bhavyansh862/python-projects/blob/563c819710d26bd7831561ca4ac0520239600908/Search%20on%20the%20google.ipynb',
+      category: 'Python',
+    },
+    {
+      id: 'project-predict-missing-value',
+      title: 'Predict Missing Value',
+      description: 'A Jupyter Notebook project that demonstrates techniques for predicting and filling missing values in datasets using machine learning methods.',
+      techStack: ['Python', 'Jupyter Notebook', 'Machine Learning'],
+      image: 'https://raw.githubusercontent.com/jupyter/design/master/logos/rectanglelogo-greytext-orangebody-greymoons.svg', // Replace with a custom image if available
+      github: 'https://github.com/bhavyansh862/python-projects/blob/563c819710d26bd7831561ca4ac0520239600908/fill%20missing%20value%20ML2.ipynb',
+      category: 'AI/ML',
+    },
+    {
+      id: 'project-phone-message-automation',
+      title: 'Phone Message Automation',
+      description: 'A Jupyter Notebook that automates sending messages by phone using Python. Demonstrates SMS automation and integration with phone messaging services.',
+      techStack: ['Python', 'Jupyter Notebook', 'Automation', 'SMS'],
+      image: 'https://raw.githubusercontent.com/jupyter/design/master/logos/rectanglelogo-greytext-orangebody-greymoons.svg', // Replace with a custom image if available
+      github: 'https://github.com/bhavyansh862/python-projects/blob/51ee8a83d1bca6cfa4f3262dd6caf84b6fce06f0/phonemsg.ipynb',
+      category: 'Python',
+    },
+    {
+      id: 'project-ram-reader',
+      title: 'RAM Reader',
+      description: 'A Jupyter Notebook project for reading and analyzing RAM usage using Python. Useful for system monitoring and performance analysis.',
+      techStack: ['Python', 'Jupyter Notebook', 'System Monitoring'],
+      image: 'https://raw.githubusercontent.com/jupyter/design/master/logos/rectanglelogo-greytext-orangebody-greymoons.svg', // Replace with a custom image if available
+      github: 'https://github.com/bhavyansh862/python-projects/blob/51ee8a83d1bca6cfa4f3262dd6caf84b6fce06f0/ram%20reader.ipynb',
+      category: 'Python',
+    },
+    {
+      id: 'project-auto-whatsapp-msg',
+      title: 'Auto WhatsApp Message',
+      description: 'A Jupyter Notebook that automates sending messages on WhatsApp using Python. Demonstrates web automation for WhatsApp messaging.',
+      techStack: ['Python', 'Jupyter Notebook', 'Automation', 'WhatsApp'],
+      image: 'https://raw.githubusercontent.com/jupyter/design/master/logos/rectanglelogo-greytext-orangebody-greymoons.svg', // Replace with a custom image if available
+      github: 'https://github.com/bhavyansh862/python-projects/blob/7c563f88ad1c95c81e85f55fdd7d7f8ba3a61248/phonemsg.ipynb',
+      category: 'Python',
+    },
   ];
 
   // Add state for selected category
